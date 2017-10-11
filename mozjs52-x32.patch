@@ -1,0 +1,22 @@
+--- mozilla-esr38/js/src/jstypes.h.x32fix	2017-03-21 08:17:52.446161040 +0100
++++ mozilla-esr38/js/src/jstypes.h	2017-03-21 08:18:23.531014466 +0100
+@@ -142,7 +142,7 @@
+ # endif
+ #elif defined(__GNUC__)
+ /* Additional GCC defines are when running on Solaris, AIX, and HPUX */
+-# if defined(__x86_64__) || defined(__sparcv9) || \
++# if (defined(__x86_64__) && !defined(__ILP32__)) || defined(__sparcv9) || \
+         defined(__64BIT__) || defined(__LP64__)
+ #  define JS_64BIT
+ # endif
+--- firefox-52.4.0esr/build/moz.configure/init.configure.x32	2017-10-09 21:07:08.378262900 +0200
++++ firefox-52.4.0esr/build/moz.configure/init.configure	2017-10-09 21:07:52.781784556 +0200
+@@ -386,7 +386,7 @@ def split_triplet(triplet):
+     return namespace(
+         alias=triplet,
+         cpu=CPU(canonical_cpu),
+-        bitness=CPU_bitness[canonical_cpu],
++        bitness=32,
+         kernel=Kernel(canonical_kernel),
+         os=OS(canonical_os),
+         endianness=Endianness(endianness),
