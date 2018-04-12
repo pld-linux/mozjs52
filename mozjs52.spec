@@ -1,12 +1,14 @@
 Summary:	SpiderMonkey 52 - JavaScript implementation
 Summary(pl.UTF-8):	SpiderMonkey 52 - implementacja języka JavaScript
 Name:		mozjs52
-Version:	52.4.0
-Release:	3
+Version:	52.7.4
+Release:	1
 License:	MPL v2.0
 Group:		Libraries
-Source0:	https://ftp.mozilla.org/pub/firefox/releases/%{version}esr/source/firefox-%{version}esr.source.tar.xz
-# Source0-md5:	5a192e26a22325e26f15e2aed4d5b17c
+#Source0:	https://ftp.mozilla.org/pub/firefox/releases/%{version}esr/source/firefox-%{version}esr.source.tar.xz
+# instructions to get: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/52
+Source0:	https://queue.taskcluster.net/v1/task/U1nRqVKNRj29NR92pluyxA/runs/0/artifacts/public/build/mozjs-%{version}.tar.bz2
+# Source0-md5:	0c025f7ddd2c03880fd738692c0659dd
 Patch0:		copy-headers.patch
 Patch1:		disable-mozglue.patch
 Patch2:		system-virtualenv.patch
@@ -57,7 +59,7 @@ Header files for JavaScript reference library.
 Pliki nagłówkowe do biblioteki JavaScript.
 
 %prep
-%setup -q -n firefox-%{version}esr
+%setup -q -n mozjs-%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -65,8 +67,6 @@ Pliki nagłówkowe do biblioteki JavaScript.
 %ifarch x32
 %patch4 -p1
 %endif
-
-cd js/src
 
 %build
 export PYTHON="%{__python}"
