@@ -2,7 +2,7 @@ Summary:	SpiderMonkey 52 - JavaScript implementation
 Summary(pl.UTF-8):	SpiderMonkey 52 - implementacja języka JavaScript
 Name:		mozjs52
 Version:	52.7.4
-Release:	4
+Release:	5
 License:	MPL v2.0
 Group:		Libraries
 #Source0:	https://ftp.mozilla.org/pub/firefox/releases/%{version}esr/source/firefox-%{version}esr.source.tar.xz
