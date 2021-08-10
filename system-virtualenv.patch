@@ -9,4 +9,4 @@
 +        return '/usr/bin/virtualenv-2'
  
      @property
-     def python_path(self):
+     def bin_path(self):
