@@ -15,6 +15,7 @@ Patch2:		system-virtualenv.patch
 Patch3:		include-configure-script.patch
 Patch4:		%{name}-x32.patch
 Patch5:		%{name}-cpp.patch
+Patch6:		sysctl_h.patch
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
 BuildRequires:	autoconf2_13
 BuildRequires:	libstdc++-devel >= 6:4.4
@@ -69,6 +70,7 @@ Pliki nagłówkowe do biblioteki JavaScript.
 %patch4 -p1
 %endif
 %patch5 -p1
+%patch6 -p1
 
 %build
 export PYTHON="%{__python}"

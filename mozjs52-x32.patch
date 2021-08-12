@@ -20,17 +20,6 @@
          kernel=Kernel(canonical_kernel),
          os=OS(canonical_os),
          endianness=Endianness(endianness),
---- firefox-52.4.0esr/memory/mozjemalloc/jemalloc.c~	2017-05-12 02:25:50.000000000 +0200
-+++ firefox-52.4.0esr/memory/mozjemalloc/jemalloc.c	2017-10-14 23:08:32.676380395 +0200
-@@ -331,7 +331,7 @@
- #endif
- #include <sys/time.h>
- #include <sys/types.h>
--#if !defined(MOZ_MEMORY_SOLARIS) && !defined(MOZ_MEMORY_ANDROID)
-+#if !defined(MOZ_MEMORY_SOLARIS) && !defined(MOZ_MEMORY_ANDROID) && !defined(__ILP32__)
- #include <sys/sysctl.h>
- #endif
- #include <sys/uio.h>
 --- firefox-52.4.0esr/js/src/old-configure.in.djit	2017-10-16 21:07:31.353333333 +0200
 +++ firefox-52.4.0esr/js/src/old-configure.in	2017-10-16 21:37:42.479999989 +0200
 @@ -945,6 +945,9 @@ fi
